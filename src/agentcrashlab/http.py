@@ -12,6 +12,7 @@ import math
 import re
 import secrets
 import socket
+import socketserver
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
@@ -35,6 +36,13 @@ class _FixtureServer(ThreadingHTTPServer):
     def __init__(self, handler: type[BaseHTTPRequestHandler]) -> None:
         self._slots = threading.BoundedSemaphore(32)
         super().__init__(('127.0.0.1', 0), handler)
+
+    def server_bind(self) -> None:
+        # HTTPServer.server_bind() calls socket.getfqdn(), a reverse DNS lookup that
+        # can block for seconds per server start (observed on macOS CI). The fixture
+        # never uses server_name, so bind the socket without the lookup.
+        socketserver.TCPServer.server_bind(self)
+        self.server_name, self.server_port = self.server_address[:2]
 
     def process_request(self, request: socket.socket, client_address: tuple[str, int]) -> None:
         if not self._slots.acquire(blocking=False):

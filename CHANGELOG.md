@@ -16,5 +16,7 @@ Initial experimental release candidate.
 - Windows fixes found in pre-publication review: HTTP rejections drain the request
   body so clients receive the HTTP error instead of a connection reset; tests no
   longer depend on the locale encoding or oversized test IDs.
+- The HTTP fixture skips the reverse DNS lookup in `HTTPServer.server_bind()`,
+  which delayed every fixture start by seconds on macOS.
 
 No PyPI publication, genuine-model evaluation or production certification is implied.

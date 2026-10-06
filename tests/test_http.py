@@ -44,6 +44,21 @@ def test_response_is_actually_dropped_after_commit():
         service.close()
 
 
+def test_server_start_skips_reverse_dns(monkeypatch):
+    import socket
+
+    def no_lookup(*args):
+        raise AssertionError('getfqdn can block for seconds on some hosts')
+    monkeypatch.setattr(socket, 'getfqdn', no_lookup)
+    service, server = setup_service()
+    try:
+        with server:
+            server.client().create_order(intent_id='task-001', customer_id='demo-customer',
+                                         sku='demo-keyboard', quantity=1)
+    finally:
+        service.close()
+
+
 def test_authentication_required():
     service, server = setup_service()
     try:
