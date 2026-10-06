@@ -46,6 +46,14 @@ demo reproduced its expected pattern; `python -m build` and the installed-wheel
 smoke passed. The pinned action commits in `.github/workflows/ci.yml` were checked
 against the upstream tags through the GitHub API.
 
+## Hosted CI
+
+GitHub Actions run [37441653947](https://github.com/anpanmanj987-hub/agentcrashlab/actions/runs/37441653947) on commit `7fc7da0`
+passed all nine jobs: Ubuntu, macOS and Windows with CPython 3.11, 3.13 and 3.14
+(113 tests each, then build and installed-wheel smoke). The first run failed on
+macOS only: each HTTP fixture start blocked in a reverse DNS lookup, so the HTTP
+demo test exceeded its 15 s timeout. The fixture now binds without that lookup.
+
 ## Reproduce
 
 ```bash
@@ -81,9 +89,8 @@ outcome cards stay fixed.
 
 ## Deliberately not claimed
 
-- GitHub publication, GitHub Actions execution or PyPI publication.
-- Executed macOS or Python 3.11/3.14 runs (Windows with 3.13 was run locally; see
-  above). The CI matrix is prepared for these environments.
+- PyPI publication.
+- Platforms outside the hosted CI matrix above.
 - Live-model evaluation, framework/MCP conformance or cross-model determinism.
 - Production payments/orders, arbitrary endpoint proxying or traffic interception.
 - A sandbox for malicious policy code, an external penetration test or independent

@@ -4,6 +4,8 @@
 
 **Fault-inject tool calls. Verify business state. Catch the failures a success message hides.**
 
+[![Test and package](https://github.com/anpanmanj987-hub/agentcrashlab/actions/workflows/ci.yml/badge.svg)](https://github.com/anpanmanj987-hub/agentcrashlab/actions/workflows/ci.yml)
+
 Python 3.11+ · MIT · Zero runtime dependencies · Offline demo · Experimental v0.1
 
 [日本語](README.ja.md) · [Quickstart](#run-the-demo) · [Bring your agent](docs/INTEGRATION.md) · [How it works](docs/ARCHITECTURE.md) · [Security boundaries](SECURITY.md)
