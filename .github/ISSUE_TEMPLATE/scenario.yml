@@ -1,0 +1,29 @@
+name: New failure scenario
+description: A tool-use failure with a testable business consequence
+title: "[scenario] "
+body:
+  - type: textarea
+    id: consequence
+    attributes:
+      label: What goes wrong in the business state?
+    validations:
+      required: true
+  - type: textarea
+    id: injection
+    attributes:
+      label: Fault schedule and agent-visible observation
+    validations:
+      required: true
+  - type: textarea
+    id: oracle
+    attributes:
+      label: Independent invariant and expected failing/passing policy behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Scope
+      options:
+        - label: This proposal can be reproduced with synthetic data and no production endpoints.
+          required: true

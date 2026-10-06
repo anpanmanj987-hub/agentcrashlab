@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="@@CSP@@">
+<meta name="color-scheme" content="dark">
+<title>@@TITLE@@</title>
+<style>@@CSS@@</style>
+</head>
+<body>
+<div class="shell">
+<header class="masthead">
+ <a class="brand" href="#main" aria-label="AgentCrashLab report"><span class="brand-mark" aria-hidden="true">⌗</span>AgentCrashLab<span class="version">/ 0.1</span></a>
+ <span class="local-tag"><span aria-hidden="true">●</span> OFFLINE EVIDENCE VIEWER</span>
+</header>
+<main id="main">
+<section class="hero">
+ <div><p class="eyebrow">FAULT INJECTION. BUSINESS CONSEQUENCES.</p><h1>Trust the state.<br><em>Not the claim.</em></h1><p class="hero-copy">A successful response is not a successful transaction.<br>Break the tool call. Inspect what actually committed.</p></div>
+ <div class="hero-aside"><div class="signal"><span class="signal-label">AGENT CLAIM</span><span class="signal-value">“Done.”</span><span class="signal-wire" aria-hidden="true">↓</span><span class="signal-label">BUSINESS STATE</span><span class="signal-value state-signal">Verify independently.</span></div><p id="provenance" class="provenance"></p></div>
+</section>
+<section class="run-strip" aria-label="Report overview"><div><span id="run-count" class="strip-number">—</span><span>RUNS</span></div><div><span id="scenario-count" class="strip-number">—</span><span>SCENARIOS</span></div><div><span id="check-count" class="strip-number">—</span><span>CHECKS / RUN</span></div><div class="strip-note"><span aria-hidden="true">01 → 02 → 03</span><span>INJECT · OBSERVE · VERIFY</span></div></section>
+<section class="lab" aria-labelledby="lab-heading">
+ <div class="section-title"><h2 id="lab-heading">The crash lab</h2><span id="transport-label" class="mono muted"></span></div>
+ <div id="scenario-tabs" class="scenario-tabs" role="tablist" aria-label="Fault scenario"></div>
+ <div class="scenario-intro"><div><p class="eyebrow" id="scenario-id"></p><h3 id="scenario-title"></h3><p id="scenario-description"></p></div><span id="fault-chip" class="fault-chip"></span></div>
+ <div class="playback"><button id="play" class="play-button" type="button">▶ Replay trace</button><button id="reset" type="button" class="reset-button" aria-label="Reset trace to the start">↺</button><label class="sr-only" for="scrubber">Recorded trace event</label><input id="scrubber" type="range" min="0" max="1" value="1"><span id="frame-counter" class="mono"></span><span class="playback-note">Recorded events, not a live model</span></div>
+ <div id="panels" class="panels" aria-live="off"></div>
+ <p id="announcement" class="sr-only" role="status"></p>
+</section>
+<section class="interpretation"><span class="interpret-icon" aria-hidden="true">≠</span><div><h2>Passing these checks is not a safety guarantee.</h2><p>Each verdict applies to this task, fault schedule and fixture only. Stable retry keys require backend support. Recorded-call replay reconstructs tool effects; it does not rerun an LLM or prove trace authenticity.</p></div></section>
+</main>
+<footer><span>AgentCrashLab · business-state testing for tool-using agents</span><span>No CDN. No telemetry. No network requests from this report.</span></footer>
+</div>
+<script id="report-data" type="application/json">@@DATA@@</script>
+<script>@@JS@@</script>
+</body>
+</html>

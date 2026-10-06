@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentcrashlab"
+version = "0.1.0"
+description = "Fault-inject agent tool calls and verify committed business outcomes, not success claims."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "AgentCrashLab contributors"}]
+keywords = ["agents", "fault-injection", "testing", "idempotency", "reliability", "llm"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Software Development :: Testing",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/anpanmanj987-hub/agentcrashlab"
+Repository = "https://github.com/anpanmanj987-hub/agentcrashlab"
+Issues = "https://github.com/anpanmanj987-hub/agentcrashlab/issues"
+Changelog = "https://github.com/anpanmanj987-hub/agentcrashlab/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "pytest-cov>=5,<8", "build>=1.2,<2"]
+
+[project.scripts]
+agentcrashlab = "agentcrashlab.cli:main"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["agentcrashlab*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+agentcrashlab = ["py.typed", "scenarios/*.json", "assets/*.html", "assets/*.css", "assets/*.js"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["agentcrashlab"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+exclude_also = ["if __name__ == .__main__.:", "if TYPE_CHECKING:"]

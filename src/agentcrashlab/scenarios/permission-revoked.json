@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "permission-revoked",
+  "title": "Permission revoked",
+  "description": "Order creation permission is revoked before the first write. The correct outcome is blocked, not a success claim.",
+  "task": {
+    "intent_id": "task-001",
+    "customer_id": "demo-customer",
+    "sku": "demo-keyboard",
+    "quantity": 1,
+    "max_total_cents": 4900
+  },
+  "catalog": {
+    "demo-keyboard": 4900,
+    "demo-mouse": 2500
+  },
+  "faults": [
+    {
+      "kind": "permission_revoked",
+      "on_call": 1
+    }
+  ],
+  "expect": {
+    "orders": 0,
+    "status": "blocked"
+  },
+  "max_tool_calls": 100
+}

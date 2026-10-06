@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "browser": "Chromium 144.0.7559.96",
+  "load_method": "Playwright set_content; not a file:// navigation test",
+  "checks": [
+    "Executed comparison: 2 panels, 8 checks each, naive 2 orders / resilient 1",
+    "All four scenario tabs show the expected verdict pattern",
+    "Keyboard arrow and Home navigation",
+    "Play, pause, reset, range seeking and real database snapshot expansion",
+    "No browser exceptions and zero external network requests",
+    "390px and 320px responsive layouts: no horizontal document overflow",
+    "Adversarial script/image payload rendered literally; no execution or request"
+  ],
+  "requests": [],
+  "errors": []
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "id": "repeated-response-loss",
+  "title": "Every reply is lost",
+  "description": "All three attempts commit or replay an existing order, but no response reaches the policy. The correct next operational action is reconciliation; this completion-oriented case remains failed.",
+  "task": {
+    "intent_id": "task-001",
+    "customer_id": "demo-customer",
+    "sku": "demo-keyboard",
+    "quantity": 1,
+    "max_total_cents": 4900
+  },
+  "catalog": {
+    "demo-keyboard": 4900,
+    "demo-mouse": 2500
+  },
+  "faults": [
+    {
+      "kind": "response_lost",
+      "on_call": 1
+    },
+    {
+      "kind": "response_lost",
+      "on_call": 2
+    },
+    {
+      "kind": "response_lost",
+      "on_call": 3
+    }
+  ],
+  "expect": {
+    "orders": 1,
+    "status": "success"
+  },
+  "max_tool_calls": 100
+}

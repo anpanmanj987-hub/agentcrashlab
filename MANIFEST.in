@@ -1,0 +1,12 @@
+include LICENSE README.md README.ja.md SECURITY.md CONTRIBUTING.md CHANGELOG.md
+include CODE_OF_CONDUCT.md CITATION.cff pyproject.toml
+recursive-include src/agentcrashlab *.py py.typed *.json *.html *.css *.js
+recursive-include tests *.py
+recursive-include examples *.py *.json
+recursive-include docs *.md *.json *.png *.gif
+recursive-include scripts *.py
+recursive-include .github *.yml *.md
+recursive-include site *.html
+prune artifacts
+prune .git
+prune .venv

@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If this software helps your research, cite the version and describe your actual agent and fault configuration."
+title: AgentCrashLab
+version: 0.1.0
+date-released: 2026-10-06
+type: software
+license: MIT
+authors:
+  - name: AgentCrashLab contributors
+abstract: "A local fault-injection laboratory that checks committed business outcomes instead of agent success claims."
+repository-code: "https://github.com/anpanmanj987-hub/agentcrashlab"
+url: "https://github.com/anpanmanj987-hub/agentcrashlab"
